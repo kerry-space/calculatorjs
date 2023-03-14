@@ -1,3 +1,11 @@
+// Get elements from the DOM
+// const display = document.querySelector('.display');
+// const clearButton = document.querySelector('.clear');
+// const backspaceButton = document.querySelector('.backspace');
+// const operatorButtons = document.querySelectorAll('.operator');
+// const numberButtons = document.querySelectorAll('.number');
+// const equalsButton = document.querySelector('.equals');
+
 // Define global variables for the calculator
 let firstNumber = '';
 let secondNumber = '';
