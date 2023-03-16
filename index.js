@@ -50,7 +50,7 @@ const inputZero = function(eKey) {
         display.innerText = mathOperation(num1, num2, operator);
         operator = ''
         numString = display.innerText;
-    };
+    }
 }
 , InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
         if (eKey !== button.value) return;
