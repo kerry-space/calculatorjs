@@ -1,5 +1,3 @@
-
-
 const  mathOperation = function(num1, num2, operator ){
     switch(operator){
         case "+":
