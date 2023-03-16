@@ -70,3 +70,12 @@ button:hover {
 #zero {
     grid-column: span 2;
 }
+.worning {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    bottom: -20%;
+    border: 1px solid;
+    height: 20%;
+    width: 50%;
+}

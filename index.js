@@ -14,6 +14,7 @@ display.innerText = ''
 
 const inputZero = function(eKey) {
     if (operator === '/' && !numString ) {
+        
         console.log('error message')
     } else {
         display.innerText += eKey;
@@ -22,18 +23,27 @@ const inputZero = function(eKey) {
 
 },
 handleBackspace = function() {
+console.log(display.innerText.slice( -1))
+    if (display.innerText.slice(-1) === '+' || display.innerText.slice(-1) === '-' || display.innerText.slice(-1) === '*' || display.innerText.slice(-1) === '/') {
+        display.innerText =  display.innerText.slice(0, -1);
+        numString = num1.toString();
+    } else if (!display.innerText) {
+    return;
+    } else {
     display.innerText =  display.innerText.slice(0, -1);
     numString = numString.slice(0, -1);
-    if (!display.innerText) {
-    return;
-    } 
-
+    }
 },
-handleDecimal = function(numString, calculatorButtons) {
+handleDecimal = function(eKey) {
+    if (!numString) {
+        numString += `0.`
+        display.innerHTML += '0.'
+    }
     if(!numString.includes(".")) {
-        numString += calculatorButtons;    
+        numString += eKey;
+        display.innerHTML += eKey    
     } else {
-        return;    
+        return console.log('error input');    
     }
     return numString;
 },
@@ -72,6 +82,8 @@ InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
         console.log('error message')
     } else if (eKey === '0'){
         inputZero(eKey)
+    } else if (eKey === '.') {
+        handleDecimal(eKey);
     } else if (eKey === button.value) {
         display.innerText += button.value;
         numString += button.value; 
@@ -84,7 +96,7 @@ insertOperator = function(eKey) {
     }
     else if (eKey === '=') {
        equalOperator();
-    } else if ((/[-+*\/\=]/).test(display.innerText)) {
+    } else if ((/[-+*\/\=]/).test(display.innerText) && !(/^[-+*\/\=]/).test(display.innerText)) {
         num2 = Number(numString);
         numString = '';
         display.innerText = mathOperation(num1, num2, operator);
@@ -95,17 +107,14 @@ insertOperator = function(eKey) {
         operator = eKey;
         display.innerText = `0 ${eKey}`;
     }  else {
-        console.log(numString)
         num1 = Number(numString);
         numString = ''
-        console.log(num1)
         display.innerText += eKey;
         operator = eKey;
     }
 }
 
 document.addEventListener('keypress', (e) => {
-    console.log(e.key)
    InputHandling(e.key,);
 });
 
