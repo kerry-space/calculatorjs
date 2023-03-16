@@ -18,7 +18,7 @@ const  mathOperation = function(num1, num2, operator ){
 
 
 
-mathOperation(1,2,"*");
+
 
 
 export {mathOperation};
