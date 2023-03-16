@@ -1,7 +1,7 @@
 body {
     display: flex;
     justify-content: center;
-    height: 100vh;
+/*     height: 100vh; */
     align-items: center;
     text-align: center;
     background: rgb(124, 124, 154);
@@ -26,6 +26,8 @@ body {
     grid-template-columns: repeat(4, 80px);
     grid-template-rows: minmax(80px, auto) repeat(5, 70px);
     gap: 4px;
+    position: absolute;
+    top: 10%;
 }
 
 .display {
