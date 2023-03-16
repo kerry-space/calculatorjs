@@ -1,13 +1,13 @@
-
-import { mathOperation } from "./math.js"
-const calculatorButtons = document.querySelectorAll('button')
-, display = document.getElementById('display');
+import { mathOperation } from "./math.js";
+const calculatorButtons = document.querySelectorAll('button');
+const decimalButton = document.querySelector('.decimal');
+const display = document.getElementById('display');
 
 
 let numString = ''
- , operator = ''
-, num1
-, num2;
+    , operator = ''
+    , num1
+    , num2;
 
 display.innerText = ''
 
@@ -20,23 +20,31 @@ const inputZero = function(eKey) {
             numString += eKey;
     }
 
-}
-,handleBackspace = function() {
-  display.innerText =  display.innerText.slice(0, -1);
-  numString = numString.slice(0, -1);
-  if (!display.innerText) {
+},
+handleBackspace = function() {
+    display.innerText =  display.innerText.slice(0, -1);
+    numString = numString.slice(0, -1);
+    if (!display.innerText) {
     return;
-  } 
+    } 
 
-} 
-,handleDelete = function() {
+},
+handleDecimal = function(numString, calculatorButtons) {
+    if(!numString.includes(".")) {
+        numString += calculatorButtons;    
+    } else {
+        return;    
+    }
+    return numString;
+},
+handleDelete = function() {
     numString = '';
         operator = '';
         num1 = undefined;
         num2 = undefined;
         display.innerText = '';
-}
-,equalOperator = function() {
+},
+equalOperator = function() {
      if (!display.innerText) {
             console.log('error Input');
         }
@@ -51,31 +59,26 @@ const inputZero = function(eKey) {
         operator = ''
         numString = display.innerText;
     }
-}
-, InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
-        if (eKey !== button.value) return;
-        if ((/[-+*\/\=]/).test(eKey)) {
-            insertOperator(eKey)
-        } else if (eKey === 'Delete') {
+},
+InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
+    if (eKey !== button.value) return;
+    if ((/[-+*\/\=]/).test(eKey)) {
+        insertOperator(eKey)
+    } else if (eKey === 'Delete') {
       handleDelete();
     } else if (eKey === 'Backspace') {
         handleBackspace()
-    }
-    else if (display.innerText === '0') {
+    } else if (display.innerText === '0') {
         console.log('error message')
-
     } else if (eKey === '0'){
         inputZero(eKey)
-    }
-        else if (eKey === button.value) {
-            display.innerText += button.value;
-            numString += button.value; 
-            
-        } 
-        else if (!(/\d/).test(eKey) && !(/[-+*\/\=]/).test(eKey)) console.log('error input')
+    } else if (eKey === button.value) {
+        display.innerText += button.value;
+        numString += button.value; 
+    } else if (!(/\d/).test(eKey) && !(/[-+*\/\=]/).test(eKey)) console.log('error input')
     })
-}
-, insertOperator = function(eKey) {
+},
+insertOperator = function(eKey) {
     if ((/[-+*\/\=]$/).test(display.innerText)) {
         console.log('error Input');
     }
