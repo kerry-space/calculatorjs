@@ -1,16 +1,21 @@
-const  mathOperation = function(num1, num2, operator ){
+const  removeTrailingZeros = function(num) {
+  const number = parseFloat(num)
+
+  return parseFloat(number.toFixed(2))
+} 
+,mathOperation = function(num1, num2, operator ){
     switch(operator){
         case "+":
-           return (num1 + num2).toPrecision(2);
+           return removeTrailingZeros((num1 + num2));
         
         case "-":
-            return (num1 - num2).toFixed(2);
+            return removeTrailingZeros((num1 - num2));
            
         case "*":
-            return (num1 * num2).toFixed(2);
+            return removeTrailingZeros((num1 * num2));
 
         case "/":
-            return (num1 / num2).toFixed(2);
+            return removeTrailingZeros((num1 / num2));
         default: 
             
     }
