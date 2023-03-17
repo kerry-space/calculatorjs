@@ -26,6 +26,7 @@ body {
     grid-template-columns: repeat(4, 80px);
     grid-template-rows: minmax(80px, auto) repeat(5, 70px);
     gap: 4px;
+    overflow: hidden;
 }
 
 .display {
@@ -111,8 +112,8 @@ button:active {
     transform: scale(0.98);
 }
 
-#zero {
-    grid-column: span 2;
+.plus {
+    grid-row: span 2;
 }
 .worning {
     position: absolute;
