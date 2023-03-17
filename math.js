@@ -1,3 +1,5 @@
+let answer;
+
 const  removeTrailingZeros = function(num) {
   const number = parseFloat(num)
 
@@ -6,16 +8,20 @@ const  removeTrailingZeros = function(num) {
 ,mathOperation = function(num1, num2, operator ){
     switch(operator){
         case "+":
-           return removeTrailingZeros((num1 + num2));
+            answer = removeTrailingZeros((num1 + num2))
+           return answer;
         
         case "-":
-            return removeTrailingZeros((num1 - num2));
+            answer = removeTrailingZeros((num1 - num2))
+            return answer;
            
         case "*":
-            return removeTrailingZeros((num1 * num2));
+            answer = removeTrailingZeros((num1 * num2))
+            return answer;
 
         case "/":
-            return removeTrailingZeros((num1 / num2));
+            answer = removeTrailingZeros((num1 / num2))
+            return answer;
         default: 
             
     }
@@ -26,4 +32,4 @@ const  removeTrailingZeros = function(num) {
 mathOperation(1,2,"*");
 
 
-export {mathOperation};
+export {mathOperation, answer};

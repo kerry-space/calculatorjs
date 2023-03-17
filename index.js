@@ -1,4 +1,4 @@
-import { mathOperation } from "./math.js";
+import { mathOperation, answer } from "./math.js";
 const calculatorButtons = document.querySelectorAll('button');
 const decimalButton = document.querySelector('.decimal');
 const display = document.getElementById('display');
@@ -72,12 +72,20 @@ equalOperator = function() {
 },
 InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
     if (eKey !== button.value) return;
-    if ((/[-+*\/\=]/).test(eKey)) {
-        insertOperator(eKey)
-    } else if (eKey === 'Delete') {
+   else if (eKey === 'Delete') {
       handleDelete();
     } else if (eKey === 'Backspace') {
         handleBackspace()
+    } else if (eKey === 'Enter') {
+        if (answer) { 
+            display.innerText = answer
+            numString = answer.toString();
+        }
+        else return;
+    }
+    else if (display.innerText.length === 13) console.log(' too long input')
+   else if ((/[-+*\/\=]/).test(eKey)) {
+        insertOperator(eKey)
     } else if (display.innerText === '0') {
         console.log('error message')
     } else if (eKey === '0'){
