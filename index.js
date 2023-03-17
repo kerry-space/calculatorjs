@@ -99,8 +99,8 @@ insertOperator = function(eKey) {
     } else if ((/[-+*\/\=]/).test(display.innerText) && !(/^[-+*\/\=]/).test(display.innerText)) {
         num2 = Number(numString);
         numString = '';
-        display.innerText = mathOperation(num1, num2, operator);
-        num1 = Number(numString);
+        display.innerText = `${mathOperation(num1, num2, operator)}${eKey}`;
+        num1 = mathOperation(num1, num2, operator);
         operator = eKey;
     } else if (display.innerText === '') {
         num1 = 0;
