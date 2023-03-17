@@ -86,8 +86,8 @@ InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
         handleBackspace()
     } else if (eKey === 'Enter') {
         if (answer) { 
-            display.innerText = answer
-            numString = answer.toString();
+            display.innerText += answer
+            numString += answer.toString();
         }
         else return;
     }
