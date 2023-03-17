@@ -71,11 +71,24 @@ button:hover {
     grid-column: span 2;
 }
 .worning {
-    position: absolute;
-    visibility: hidden;
-    display: none;
-    bottom: -20%;
-    border: 1px solid;
-    height: 20%;
+    height: 0;
     width: 50%;
+    transition: height .25s ;
+    background-color: #f44336ed;
+    color: rgba(0,0,0,0);
+    text-overflow: none;
+    margin: auto;
+    border-radius: 10px;
+    
+    
+}
+
+.worned {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 2.5vh;
+    height: 2.5vh;
+    margin-top: 10px;
 }
