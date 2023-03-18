@@ -19,8 +19,8 @@ const warningMessage = function(message) {
         setTimeout(function(){
             document.getElementById('worn').classList.remove('worned')
         },2000)
-}
-,inputZero = function(eKey) {
+},
+inputZero = function(eKey) {
     if (operator === '/' && !numString ) {
         warningMessage("Can't divide by 0!")
         
