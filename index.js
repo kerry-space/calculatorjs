@@ -30,6 +30,10 @@ inputZero = function(eKey) {
     }
 
 },
+// signButton = function(eKey) {
+//     eKey *= -1;
+//     display.innerHTML += eKay;
+// },
 handleBackspace = function() {
 console.log(display.innerText.slice( -1))
     if (display.innerText.slice(-1) === '+' || display.innerText.slice(-1) === '-' || display.innerText.slice(-1) === '*' || display.innerText.slice(-1) === '/') {
@@ -147,7 +151,9 @@ document.addEventListener('click', (e) => {
   InputHandling(e.target.value)
 });
 
-
+// document.addEventListener('click', (e) => {
+//     signButton(e.key,);
+// });
 
  
 
