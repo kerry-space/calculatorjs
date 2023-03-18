@@ -1,7 +1,9 @@
 body {
+    margin: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
-/*     height: 100vh; */
+    height: 100vh; 
     align-items: center;
     text-align: center;
     background: rgb(124, 124, 154);
@@ -10,13 +12,6 @@ body {
     color: rgb(20, 20, 68);
     text-align: center;
 }
-
-/* .calculator {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-} */
 
 .calculator {
     background-color: rgb(13, 13, 46);
@@ -115,6 +110,7 @@ button:active {
 .plus {
     grid-row: span 2;
 }
+
 .worning {
     position: absolute;
     visibility: hidden;
@@ -123,4 +119,21 @@ button:active {
     border: 1px solid;
     height: 20%;
     width: 50%;
+}
+
+@media (max-width:768px) {
+ .calculator {
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: minmax(60px, auto) repeat(5, 40px);
+    gap: 2px;
+ }
+ button {
+    font-size: 10px;
+    padding: 7px 12px;
+ }
+ .display {
+   font-size: 1.5em;
+   padding: 2px;
+   margin: 2px;
+ }
 }
