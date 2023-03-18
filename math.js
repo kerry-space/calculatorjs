@@ -1,9 +1,14 @@
 let answer;
 
 const  removeTrailingZeros = function(num) {
-  const number = parseFloat(num)
+//   const number = parseFloat(num)
 
-  return parseFloat(number.toFixed(2))
+//   return parseFloat(number.toFixed(2))
+
+// The same two line of codes above, but with one line of code
+return parseFloat(parseFloat(num).toFixed(2));
+
+
 } 
 ,mathOperation = function(num1, num2, operator ){
     switch(operator){

@@ -13,7 +13,7 @@ let numString = ''
 display.innerText = ''
 
 
-const worningMessage = function(message) {
+const warningMessage = function(message) {
     wornings.innerText = message;
     wornings.classList.add('worned')
         setTimeout(function(){
@@ -22,7 +22,7 @@ const worningMessage = function(message) {
 }
 ,inputZero = function(eKey) {
     if (operator === '/' && !numString ) {
-        worningMessage("Can't devide by 0!")
+        warningMessage("Can't divide by 0!")
         
     } else {
         display.innerText += eKey;
@@ -51,7 +51,7 @@ handleDecimal = function(eKey) {
         numString += eKey;
         display.innerHTML += eKey    
     } else {
-        worningMessage("Can't put two of those!");    
+        warningMessage("Can't put two of those!");    
     }
     return numString;
 },
@@ -64,10 +64,10 @@ handleDelete = function() {
 },
 equalOperator = function() {
      if (!display.innerText) {
-            worningMessage('Equal to what?');
+            warningMessage('Equal to what?');
         }
       else if (!operator) {
-        return worningMessage('I think you know the answer.')
+        return warningMessage('I think you know the answer.')
       } else { 
         num2 = Number(numString);
         console.log({numString, num1, num2})
@@ -80,7 +80,7 @@ equalOperator = function() {
 },
 InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
     if (eKey !== button.value) return;
-   else if (eKey === 'Delete') {
+    else if (eKey === 'Delete') {
       handleDelete();
     } else if (eKey === 'Backspace') {
         handleBackspace()
@@ -91,11 +91,11 @@ InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
         }
         else return;
     }
-    else if (display.innerText.length === 13) worningMessage('Too long operation for me :(')
-   else if ((/[-+*\/\=]/).test(eKey)) {
+    else if (display.innerText.length === 13) warningMessage('Too long operation for me :(')
+    else if ((/[-+*\/\=]/).test(eKey)) {
         insertOperator(eKey)
     } else if (display.innerText === '0' && eKey !== '.') {
-        worningMessage('After Zero ?')
+        warningMessage('After Zero ?')
     } else if (eKey === '0'){
         inputZero(eKey)
     } else if (eKey === '.') {
@@ -103,12 +103,12 @@ InputHandling = function(eKey) { calculatorButtons.forEach((button) => {
     } else if (eKey === button.value) {
         display.innerText += button.value;
         numString += button.value; 
-    } else if (!(/\d/).test(eKey) && !(/[-+*\/\=]/).test(eKey)) worningMessage('Numbers or operators please!')
+    } else if (!(/\d/).test(eKey) && !(/[-+*\/\=]/).test(eKey)) warningMessage('Numbers or operators please!')
     })
 },
 insertOperator = function(eKey) {
     if ((/[-+*\/\=]$/).test(display.innerText)) {
-        worningMessage('You need only one of those.');
+        warningMessage('You need only one of those.');
     }
     else if (eKey === '=') {
        equalOperator();
